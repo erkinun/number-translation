@@ -27,3 +27,7 @@
 (deftest below-hundred-test
   (testing "74 should return seventy four"
     (is (= "seventy four" (below-hundred->english 74)))))
+
+(deftest hundreds->english-test
+  (testing "0 should return nil from this function"
+    (is (= nil (hundreds->english 0)))))

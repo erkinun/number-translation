@@ -51,8 +51,13 @@
 
 (defn hundreds->english
   [digit]
-  (if (= digit 0) ""
+  (when (not= digit 0)
       (str (get small-numbers digit) " hundred")))
+
+(defn tens->english
+  [digit]
+  (if (= digit 0) ""
+      (str (get ten-products digit))))
 
 (defn below-hundred->english
   [num]
@@ -63,14 +68,18 @@
      " "
      (get small-numbers (mod num 10)))))
 
-(defn tens->english
-  [digit]
-  (if (= digit 0) ""
-      (str (get ten-products digit))))
+(defn concat-numbers
+  [hunds tens]
+  (cond
+    (and (some? hunds) (some? tens)) (str hunds " and " tens)
+    (and (some? hunds) (not (some? tens))) hunds
+    (and (not (some? hunds)) (some? tens)) tens
+    :else ""))
 
 (defn number->english
   [number]
-  (str
+  (concat-numbers
    (hundreds->english (int (/ number 100)))
-   " and "
    (below-hundred->english (mod number 100))))
+
+
