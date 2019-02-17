@@ -4,13 +4,18 @@
 (defn -main
   "This is the entry point for the converter tool"
   [& args]
-  (println "Number to English converter; please enter a number between 1 to 1000 inclusive")
-  (def number (Integer. (read-line)))
-  (println (str "you entered: " number))
-  (if (check-boundary number)
-   (number->english number)
-   (println "please enter a number between 1 to 1000 inclusive"))
+  (convert)
   )
+
+(defn convert
+  []
+  (do
+    (println "Number to English converter; please enter a number between 1 to 1000 inclusive")
+    (def number (Integer. (read-line)))
+    (println (str "You entered: " number))
+    (if (check-boundary number)
+      (println (str "English: " (number->english number)))
+      (println "Please enter a number between 1 to 1000 inclusive"))))
 
 (def small-numbers
   {1 "one",
