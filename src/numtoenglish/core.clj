@@ -1,25 +1,6 @@
 (ns numtoenglish.core
   (:gen-class))
 
-(defn -main
-  "This is the entry point for the converter tool"
-  [& args]
-  (convert)
-  )
-
-(defn convert
-  []
-  (do
-    (println "Number to English converter; please enter a number between 1 to 1000 inclusive; to quit press Enter")
-    (loop [number (read-line)]
-      (when (not= number "")
-        (do
-          (let [num (Integer. number)]
-            (println (str "You entered: " num))
-            (if (check-boundary num)
-              (println (str "English: " (number->english num)))
-              (println "Please enter a number between 1 to 1000 inclusive"))))
-        (recur (read-line)))) ))
 
 (def small-numbers
   {1 "one",
@@ -85,8 +66,28 @@
 
 (defn number->english
   [number]
-  (concat-numbers
-   (hundreds->english (int (/ number 100)))
-   (below-hundred->english (mod number 100))))
+  (if (= number 1000)
+    (str "one thousand")
+    (concat-numbers
+     (hundreds->english (int (/ number 100)))
+     (below-hundred->english (mod number 100)))))
 
+(defn convert
+  []
+  (do
+    (println "Number to English converter; please enter a number between 1 to 1000 inclusive; to quit press Enter")
+    (loop [number (read-line)]
+      (when (not= number "")
+        (do
+          (let [num (Integer. number)]
+            (println (str "You entered: " num))
+            (if (check-boundary num)
+              (println (str "English: " (number->english num)))
+              (println "Please enter a number between 1 to 1000 inclusive"))))
+        (recur (read-line)))) ))
 
+(defn -main
+  "This is the entry point for the converter tool"
+  [& args]
+  (convert)
+  )

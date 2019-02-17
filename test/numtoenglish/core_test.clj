@@ -6,7 +6,9 @@
   (testing "1 should return one"
     (is (= "one" (number->english 1))))
   (testing "241 should return two hundred and forty one"
-    (is (= "two hundred and forty one" (number->english 241)))))
+    (is (= "two hundred and forty one" (number->english 241))))
+  (testing "1000 should return one thousand"
+    (is (= "one thousand" (number->english 1000)))))
 
 (deftest only-tens-conversion
   (testing "42 should return forty two"
