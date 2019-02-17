@@ -8,6 +8,10 @@ Make sure you have JDK 8+ installed on your machine. Project also requires leini
 ## Installation & Usage
 Download via git clone and then run `lein run` at the command line. Run `lein test` to run tests.
 
+Alternatively you can run `lein uberjar` and this will create a standalone jar to be distributed. This can be run with the following command: `java -jar target/uberjar/num--0.1.0-SNAPSHOT-standalone.jar`.
+
+When the tool is started, user can follow the directions on screen.
+
 ## License
 
 
