@@ -72,8 +72,8 @@
   [hunds tens]
   (cond
     (and (some? hunds) (some? tens)) (str hunds " and " tens)
-    (and (some? hunds) (not (some? tens))) hunds
-    (and (not (some? hunds)) (some? tens)) tens
+    (some? hunds) hunds
+    (some? tens) tens
     :else ""))
 
 (defn number->english
