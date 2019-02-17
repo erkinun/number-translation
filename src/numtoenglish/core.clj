@@ -2,12 +2,15 @@
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "This is the entry point for the converter tool"
   [& args]
-  (println "Hello, World!")
-  (println args))
-
-(def hede 5)
+  (println "Number to English converter; please enter a number between 1 to 1000 inclusive")
+  (def number (Integer. (read-line)))
+  (println (str "you entered: " number))
+  (if (check-boundary number)
+   (number->english number)
+   (println "please enter a number between 1 to 1000 inclusive"))
+  )
 
 (def small-numbers
   {1 "one",
@@ -43,7 +46,6 @@
 (defn check-boundary
   [n]
   (and (> n 0) (<= n 1000)))
-
 
 (defn hundreds->english
   [digit]
