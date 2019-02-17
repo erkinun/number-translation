@@ -35,7 +35,7 @@
 
 (defn check-boundary
   [n]
-  (and (> n 0) (<= n 1000)))
+  (and (integer? n) (> n 0) (<= n 1000)))
 
 (defn hundreds->english
   [digit]
@@ -72,24 +72,28 @@
      (hundreds->english (int (/ number 100)))
      (below-hundred->english (mod number 100)))))
 
+
+(defn is-numeric
+  [word]
+  (= 0 (count (filter #(not (Character/isDigit %)) word))))
+
 (defn convert
   []
   (do
     (println "Number to English converter; please enter a number between 1 to 1000 inclusive; to quit press Enter")
     (loop [number (read-line)]
       (when (not= number "")
-        (do
-          (let [num (Integer. number)]
-            (println (str "You entered: " num))
-            (if (check-boundary num)
-              (println (str "English: " (number->english num)))
-              (println "Please enter a number between 1 to 1000 inclusive"))))
+        (if (is-numeric number) 
+          (do
+            (let [num (Integer. number)]
+              (println (str "You entered: " num))
+              (if (check-boundary num)
+                (println (str "English: " (number->english num)))
+                (println "Please enter a number between 1 to 1000 inclusive"))))
+          (println "Please enter a number between 1 to 1000 inclusive"))
         (recur (read-line)))) ))
 
-;; FIXME skip when strings are entered
 ;; FIXME put the functions into another file
-;; FIXME put me in github
-;; FIXME detail the readme file
 
 (defn -main
   "This is the entry point for the converter tool"

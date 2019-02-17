@@ -10,6 +10,10 @@
   (testing "1000 should return one thousand"
     (is (= "one thousand" (number->english 1000)))))
 
+(deftest boundary-tests
+  (testing "non numeric input should return false"
+    (is (= false (check-boundary "some_name")))))
+
 (deftest only-tens-conversion
   (testing "42 should return forty two"
     (is (= "forty two" (number->english 42)))))
@@ -33,3 +37,9 @@
 (deftest hundreds->english-test
   (testing "0 should return nil from this function"
     (is (= nil (hundreds->english 0)))))
+
+(deftest isnumeric-test
+  (testing "123 should return true"
+    (is (= true (is-numeric "123"))))
+  (testing "erkin123 should return false"
+    (is (= false (is-numeric "erkin123")))))

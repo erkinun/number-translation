@@ -6,7 +6,7 @@ This a simple tool for learning purposes; it simply accepts command line entries
 Make sure you have JDK 8+ installed on your machine. Project also requires leiningen build tool so download it from https://leiningen.org/. 
 
 ## Installation & Usage
-Download via git clone and then run `lein run` at the command line.
+Download via git clone and then run `lein run` at the command line. Run `lein test` to run tests.
 
 ## License
 
