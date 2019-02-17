@@ -63,6 +63,7 @@
     :else ""))
 
 (defn number->english
+  "converts a small number by converting hundreds and tens separately"
   [number]
   (if (= number 1000)
     (str "one thousand")
@@ -72,10 +73,12 @@
 
 
 (defn is-numeric
+  "checks if a word supplied is numeric"
   [word]
   (= 0 (count (filter #(not (Character/isDigit %)) word))))
 
 (defn convert
+  "this is the main entry point for conversion, does the IO loop"
   []
   (do
     (println "Number to English converter; please enter a number between 1 to 1000 inclusive; to quit press Enter")
