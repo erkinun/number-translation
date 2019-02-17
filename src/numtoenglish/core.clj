@@ -10,12 +10,16 @@
 (defn convert
   []
   (do
-    (println "Number to English converter; please enter a number between 1 to 1000 inclusive")
-    (def number (Integer. (read-line)))
-    (println (str "You entered: " number))
-    (if (check-boundary number)
-      (println (str "English: " (number->english number)))
-      (println "Please enter a number between 1 to 1000 inclusive"))))
+    (println "Number to English converter; please enter a number between 1 to 1000 inclusive; to quit press Enter")
+    (loop [number (read-line)]
+      (when (not= number "")
+        (do
+          (let [num (Integer. number)]
+            (println (str "You entered: " num))
+            (if (check-boundary num)
+              (println (str "English: " (number->english num)))
+              (println "Please enter a number between 1 to 1000 inclusive"))))
+        (recur (read-line)))) ))
 
 (def small-numbers
   {1 "one",
