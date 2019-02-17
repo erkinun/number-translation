@@ -44,10 +44,6 @@
   [n]
   (and (> n 0) (<= n 1000)))
 
-;; might not be needed at all
-(defn num->array
-  [num]
-  (reverse (.split (str num) "")))
 
 (defn hundreds->english
   [digit]
