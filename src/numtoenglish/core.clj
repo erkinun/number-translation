@@ -86,6 +86,11 @@
               (println "Please enter a number between 1 to 1000 inclusive"))))
         (recur (read-line)))) ))
 
+;; FIXME skip when strings are entered
+;; FIXME put the functions into another file
+;; FIXME put me in github
+;; FIXME detail the readme file
+
 (defn -main
   "This is the entry point for the converter tool"
   [& args]

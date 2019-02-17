@@ -1,36 +1,15 @@
-# num-
+# number to english translation (1 to 1000)
 
-FIXME: description
+This a simple tool for learning purposes; it simply accepts command line entries of numbers between 1 to 1000 from the user and prints out a grammatically correct english translation of the number. 
 
-## Installation
+## Requirements
+Make sure you have JDK 8+ installed on your machine. Project also requires leiningen build tool so download it from https://leiningen.org/. 
 
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar num--0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+## Installation & Usage
+Download via git clone and then run `lein run` at the command line.
 
 ## License
 
-Copyright © 2019 FIXME
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
