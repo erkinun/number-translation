@@ -1,3 +1,1 @@
-# Introduction to num-
-
-TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
+# Introduction to number to english translation
