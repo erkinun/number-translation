@@ -47,12 +47,12 @@
 
 (defn below-hundred->english
   [num]
-  (if (<= num 20)
+  (if (< num 20)
     (get small-numbers num)
-    (str
-     (tens->english (* 10 (int (/ num 10))))
-     " "
-     (get small-numbers (mod num 10)))))
+    (apply str
+     (interpose " "
+                (filter some? [(tens->english (* 10 (int (/ num 10))))
+                                   (get small-numbers (mod num 10))])))))
 
 (defn concat-numbers
   [hunds tens]
@@ -92,3 +92,19 @@
                 (println "Please enter a number between 1 to 1000 inclusive"))))
           (println "Please enter a number between 1 to 1000 inclusive"))
         (recur (read-line)))) ))
+
+; convert-any
+; reverting string
+; map each char to an int
+; group each 3 digits
+; convert them with number->english
+; zip them with appropriate and connectors
+
+(defn divide-into-ts
+  [n]
+  (do
+    (let [r (rem n 1000)
+          div (int (/ n 1000))]
+      (if (> div 0)
+        (into  [r] (divide-into-ts div))
+        [r]))))

@@ -1,10 +1,13 @@
 (ns numtoenglish.core-test
   (:require [clojure.test :refer :all]
-            [numtoenglish.core :refer :all]))
+            [numtoenglish.core :refer :all]
+            [numtoenglish.convert :refer :all]))
 
 (deftest number->english->tests
   (testing "1 should return one"
     (is (= "one" (number->english 1))))
+  (testing "20 should return twenty"
+    (is (= "twenty" (number->english 20))))
   (testing "241 should return two hundred and forty one"
     (is (= "two hundred and forty one" (number->english 241))))
   (testing "1000 should return one thousand"
